@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Portfolio</title>
-</head>
-<body>
-    <h1>My Projects</h1>
-    <ul>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-4">My Projects</h1>
+    <ul class="mb-8">
         {% for project in projects %}
-        <li>{{ project.title }} - {{ project.technologies }}</li>
+        <li class="mb-2">
+            <span class="font-semibold">{{ project.title }}</span> - <span>{{ project.technologies }}</span>
+        </li>
         {% endfor %}
     </ul>
 
-    <h1>My Skills</h1>
+    <h1 class="text-3xl font-bold mb-4">My Skills</h1>
     <ul>
         {% for skill in skills %}
-        <li>{{ skill.name }} - {{ skill.proficiency }}</li>
+        <li class="mb-2">
+            <span class="font-semibold">{{ skill.name }}</span> - <span>{{ skill.proficiency }}</span>
+        </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
