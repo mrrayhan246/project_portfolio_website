@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>My Blog</title>
+
+
+    <!-- Link to Tailwind CSS -->
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+    <!-- Add any custom styles or fonts here -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-blue-500 text-white p-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold">My Blog</h1>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 text-white p-4 mt-4">
+        <div class="container mx-auto">
+            <p>&copy; 2025 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
