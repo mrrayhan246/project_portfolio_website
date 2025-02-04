@@ -11,19 +11,19 @@
     <!-- Link to Tailwind CSS using CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    
+
 </head>
 <body>
     <!-- Header -->
-    <header class="bg-blue-500 text-white p-4 shadow-md">
+    <header class="bg-blue-500 text-white p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">My Blog</h1>
             <nav class="hidden md:flex space-x-4">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">About</a>
-                <a href="#" class="hover:underline">Projects</a>
-                <a href="#" class="hover:underline">Skills</a>
-                <a href="#" class="hover:underline">Contact</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="home-link">Home</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="about-link">About</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="projects-link">Projects</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="skills-link">Skills</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="contact-link">Contact</a>
             </nav>
             <button id="menu-btn" class="md:hidden focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -33,11 +33,11 @@
         </div>
         <div id="menu" class="hidden md:hidden">
             <nav class="flex flex-col space-y-4 mt-4">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">About</a>
-                <a href="#" class="hover:underline">Projects</a>
-                <a href="#" class="hover:underline">Skills</a>
-                <a href="#" class="hover:underline">Contact</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="mobile-home-link">Home</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="mobile-about-link">About</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="mobile-projects-link">Projects</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="mobile-skills-link">Skills</a>
+                <a href="#" class="hover:text-gray-300 transition duration-300" id="mobile-contact-link">Contact</a>
             </nav>
         </div>
     </header>
@@ -56,14 +56,20 @@
     </footer>
 
     <script>
-        // Custom JavaScript for menu toggle
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
+        // Toggle mobile menu
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    
+        // Highlight active link
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach(link => link.classList.remove('text-white', 'font-bold'));
+                link.classList.add('text-white', 'font-bold');
+            });
         });
     </script>
 
